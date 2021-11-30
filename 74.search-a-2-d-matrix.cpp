@@ -8,6 +8,7 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        //search a 2D Matrix
        if(matrix.size()==0) return false;
         int m=matrix.size();
         int n=matrix[0].size();
