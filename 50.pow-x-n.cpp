@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
 public:
+//Pow(x, n)
     double myPow(double x, int n) {
          long long nn=n;
         double ans=1.0;
