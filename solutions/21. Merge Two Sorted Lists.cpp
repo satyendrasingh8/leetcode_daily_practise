@@ -26,7 +26,7 @@ public:
             }
             temp->next=l2;
             swap(l1,l2);
-        }
+        }
         return res;
     }
 };
