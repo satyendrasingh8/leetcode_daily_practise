@@ -8,8 +8,8 @@ public:
             return false;
         }
         while(x>0){
-            num = num*10;
-            num = num + (x%10);
+            int rem = x%10 ;
+            num = num*10 + rem;
             x = x/10;
         }
         return num == y;
