@@ -4,10 +4,11 @@ public:
         sort(nums.begin(),nums.end());
         vector<vector<int>> res;
         //moves for a (b+c=-a)
-        for(int i=0;i<int(nums.size())-2;i++){
+        int n=nums.size();
+        for(int i=0;i<n-2;i++){
             
            if(i==0 || (i>0 && nums[i]!=nums[i-1])){
-                int lo=i+1,hi=nums.size()-1;
+                int lo=i+1,hi=n-1;
             int sum=0-nums[i];
            while(lo<hi){
                 if(nums[lo]+nums[hi]==sum){
