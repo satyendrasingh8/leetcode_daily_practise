@@ -17,8 +17,8 @@ public:
                     temp.push_back(nums[hi]);
                     res.push_back(temp);
                     
-                    while(lo<hi && nums[lo]==nums[lo+1]) lo++;
-                      while(lo<hi && nums[hi]==nums[hi-1]) hi--;
+                    while(nums[lo]==nums[lo+1]) lo++;
+                      while(nums[hi]==nums[hi-1]) hi--;
                     
                 lo++;hi--;
             } else if(nums[lo]+nums[hi]<sum) lo++;
