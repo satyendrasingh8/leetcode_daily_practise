@@ -1,39 +1,42 @@
 class Solution {
 public:
-    bool helper(int mid,vector<int>& weights,int days){
-        int count=1,sum=0;
+    bool allocIsPossible(int mid,vector<int>& weights,int days){
+        int allocDays=1,sum=0;
         
         for(int i=0;i<weights.size();i++){
             sum+=weights[i];
             if(sum>mid){
-                count++;
+                allocDays++;
                 sum=weights[i];
             }
         }
-        if(count<=days)
+        if(allocDays<=days)
             return true;
         return false;
     }
     
     int shipWithinDays(vector<int>& weights, int days) {
-        int maxCapacity=0;
+        int maxCapacity=0,maxel=-1;
         int n=weights.size();
         
-        for(int i=0;i<n;i++)
-            maxCapacity+=weights[i];
+        for(int w:weights){
+              maxCapacity+=w;
+            maxel=max(maxel,w);
+        }
+          
         
-        int low=*max_element(weights.begin(),weights.end()),high=maxCapacity;
-        int result;
+        int low=maxel,high=maxCapacity;
+    
         
         while(low<=high){
             int mid=low+(high-low)/2;
-            if(helper(mid,weights,days)){
-                result=mid;
+            if(allocIsPossible(mid,weights,days)){
+            
                 high=mid-1;
             }
             else
                 low=mid+1;
         }
-        return result;
+        return low;
     }
 };
